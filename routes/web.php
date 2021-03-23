@@ -26,6 +26,7 @@ Route::post('/contact', 'ContactController@store');
 
 Route::get('payments/create', 'PaymentsController@show')->middleware('auth');
 Route::post('payments', 'PaymentsController@store')->middleware('auth');
+Route::get('/notifications', 'UserNotificationsController@show')->middleware('auth');
 
 Auth::routes();
 
