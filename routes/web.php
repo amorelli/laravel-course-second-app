@@ -24,9 +24,14 @@ Route::get('/', function () {
 Route::get('/contact', 'ContactController@show');
 Route::post('/contact', 'ContactController@store');
 
+
 Route::get('payments/create', 'PaymentsController@show')->middleware('auth');
 Route::post('payments', 'PaymentsController@store')->middleware('auth');
 Route::get('/notifications', 'UserNotificationsController@show')->middleware('auth');
+
+Route::get('conversations', 'ConversationsController@index');
+Route::get('conversations/{conversation}', 'ConversationsController@show');
+Route::post('/best-replies/{reply}', 'ConversationsBestReplyController@store');
 
 Auth::routes();
 

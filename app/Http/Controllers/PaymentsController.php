@@ -18,6 +18,7 @@ class PaymentsController extends Controller
   {
     Notification::send(request()->user(), new PaymentReceived(900));
 
+    // ProductPurchased::dispatch('toy') is the same as below
     event(new ProductPurchased('toy'));
 
     // return redirect('/payments/create');
